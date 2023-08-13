@@ -10,6 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - **Node.js**: Ensure you have at least version 14 or higher.
 - **Yarn**: This project uses the Yarn package manager.
+- **Express**: For server-side functionality and SSR.
 
 ### Installation
 
@@ -22,6 +23,8 @@ cd trello-app
 3. **Install the dependencies**:
 yarn install
 
+4. **Install Express**:
+yarn add express
 
 ## 📜 Available Scripts
 
@@ -36,12 +39,26 @@ Runs the app in the development mode. Open [http://localhost:3000](http://localh
 Compile and minify the application for production use.
 
 
+## 🏃‍♂️ Running the Express Server
+After installing all dependencies:
+
+1.Create a server directory at the root of your project.
+
+2.Inside the server directory, create an index.js file.
+
+3.Add a basic Express setup to index.js to run a server on port 9000.
+
+4.Start the server using the yarn server command.
+
+
 ## 🔧 Dependencies Used
 
 - **react-beautiful-dnd**: for drag and drop functionalities.
 - **uuid**: to generate unique IDs.
 - **typescript**: for static type checking.
+- **express**: For server-side functionality.
 (Consider adding descriptions for other major dependencies as well.)
+
 
 
 
