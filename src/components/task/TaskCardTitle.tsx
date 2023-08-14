@@ -8,11 +8,11 @@ export default function TaskCardTitle() {
     setIsClick(true);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>)  => {
     setInputCardTitle(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  (e: React.FormEvent<HTMLFormElement>)  => {
     e.preventDefault();
     setIsClick(false);
   };

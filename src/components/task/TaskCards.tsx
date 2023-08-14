@@ -1,24 +1,35 @@
 import React, { useState } from "react";
 import TaskCard from "./TaskCard";
 import { AddTaskCardButton } from "./button/AddTaskCardButton";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
+import { ReorderArgs } from "../../interfaces/ReordereArgs";
 
-const reorder =(taskCardsList,startIndex, endIndex)=>{
-  const remove = taskCardsList.splice(startIndex,1);
-  taskCardsList.splice(endIndex,0,remove[0]);
+const reorder =({taskList,startIndex, endIndex}:ReorderArgs)=>{
+  const newList =[...taskList];
+
+  const [removed] = newList.splice(startIndex,1);
+  newList.splice(endIndex,0,removed);
+  return newList;
 }
 
 export const TaskCards = () => {
   const [taskCardsList, setTaskCardsList] = useState([{
     id:"0",
-    draggableId:"item0"
+    draggableId:"item0",
+
   }
   ]);
 
-  const handleDragEnd=(result)=>{
-    reorder(taskCardsList,result.source.index,result.destination.index)
+  const handleDragEnd=(result:DropResult)=>{
+    if (!result.destination) return;
 
-    setTaskCardsList(taskCardsList);
+    const newTaskCardsList =  reorder({
+      taskList: taskCardsList,
+      startIndex: result.source.index,
+      endIndex: result.destination.index
+    });
+
+    setTaskCardsList(newTaskCardsList);
   }
   return (
     <DragDropContext onDragEnd={handleDragEnd}>

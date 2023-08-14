@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction } from 'react';
+import { TaskType } from './TaskType';
 
 export interface TasksProps {
     inputText: string;
-    taskList: any[];
-    setTaskList: Dispatch<SetStateAction<any[]>>;
+    taskList: TaskType[];
+    setTaskList: React.Dispatch<React.SetStateAction<TaskType[]>>;
   }

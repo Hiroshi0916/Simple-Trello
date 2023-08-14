@@ -1,13 +1,14 @@
 import React from "react";
 import { v4 as uuid } from 'uuid';
+import { TaskAddInputProps } from "../../../interfaces/TaskAddInputProps";
 
-export const TaskAddInput = ({
+export const TaskAddInput:React.FC<TaskAddInputProps> = ({
   inputText,
   setInputText,
   setTaskList,
   taskList,
 }) => {
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     const taskId =uuid();
     e.preventDefault();
     if(inputText ===""){
@@ -25,7 +26,7 @@ export const TaskAddInput = ({
     setInputText("");
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   };
   return (

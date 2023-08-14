@@ -1,10 +1,10 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
+import { TaskProps } from "../../interfaces/TaskProps";
 
-export const Task = ({ task, taskList, setTaskList, index }) => {
-  const handleDelete = (id) => {
+export const Task:React.FC<TaskProps> = ({ task, taskList, setTaskList, index }) => {
+  const handleDelete = (id:string) => {
     const newTaskList = taskList.filter((task) => task.id !== id);
-    
     setTaskList(newTaskList);
   };
   return (

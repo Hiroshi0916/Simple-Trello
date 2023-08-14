@@ -1,12 +1,15 @@
 import React from 'react'
+import { TaskCardDeleteButtonProps } from '../../../interfaces/TaskCardDeleteButtonProps';
+import { TaskType } from '../../../interfaces/TaskType';
+import { TaskCardType } from '../../../interfaces/TaskCardType';
 
 export default function TaskCardDeleteButton({
   taskCardsList,
   setTaskCardsList,
   taskCard
-}) {
-  const taskCardDeleteButton=(id)=>{
-    setTaskCardsList(taskCardsList.filter((e)=>e.id !== id));
+}: TaskCardDeleteButtonProps) {
+  const taskCardDeleteButton=(id:string)=>{
+    setTaskCardsList(taskCardsList.filter((e:TaskCardType)=>e.id !== id));
   }
   return (
     <div>

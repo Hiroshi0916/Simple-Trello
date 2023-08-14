@@ -4,10 +4,13 @@ import TaskCardDeleteButton from "./button/TaskCardDeleteButton";
 import Tasks from "./Tasks";
 import { TaskAddInput } from "./input/TaskAddInput";
 import { Draggable } from "react-beautiful-dnd";
+import { TaskCardProps } from "../../interfaces/TaskCardProps";
+import { TaskType } from "../../interfaces/TaskType";
 
-export default function TaskCard({taskCardsList,setTaskCardsList,taskCard,index} ) {
+export default function TaskCard({taskCardsList,setTaskCardsList,taskCard,index}: TaskCardProps ) {
   const [inputText, setInputText] = useState("");
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState<TaskType[]>([]);
+
 
   return (
     <Draggable

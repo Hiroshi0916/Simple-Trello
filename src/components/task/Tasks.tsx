@@ -1,23 +1,33 @@
 import React from "react";
 
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
 import { Task } from "./Task";
 import { TasksProps } from "../../interfaces/TasksProps";
+import { TaskType } from "../../interfaces/TaskType";
 
 const Tasks: React.FC<TasksProps>=({ taskList, setTaskList })=> {
   if (!taskList) return null;
 
-  const reorder=(taskList,startIndex,endIndex)=>{
+  const reorder = ({ taskList, startIndex, endIndex }: {
+     taskList: TaskType[],
+    startIndex: number,
+    endIndex: number
+   }):TaskType[]=>{
     const newList =[...taskList];
     const [removed] =newList.splice(startIndex, 1);
     newList.splice(endIndex, 0, removed);
     return newList;
   }
 
-  const handleDragEnd = (result) => {
+  const handleDragEnd = (result:DropResult) => {
     if(!result.destination)return;
 
-    const newTaskList =reorder(taskList,result.source.index,result.destination.index);
+    const newTaskList = reorder({
+      taskList: taskList,
+      startIndex: result.source.index,
+      endIndex: result.destination.index
+    });
+    
     setTaskList(newTaskList);
   };
 

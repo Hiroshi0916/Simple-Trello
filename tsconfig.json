@@ -1,7 +1,22 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-        "esModuleInterop": true
-      }
-  }
-  
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./src/interfaces"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "server/**/*.ts",
+    "server/**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
+}
