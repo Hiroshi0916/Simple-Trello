@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export default function TaskCardTitle() {
-  const [isClick, setIsClick] = useState(false);
-  const [inputCardTitle, setInputCardTitle] = useState("Today");
+  const [isClick, setIsClick] = useState<boolean>(false);
+  const [inputCardTitle, setInputCardTitle] = useState<string>("Today");
 
   const handleClick = () => {
     setIsClick(true);
