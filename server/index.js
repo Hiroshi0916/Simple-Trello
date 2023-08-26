@@ -6,7 +6,6 @@ const App = require('../src/App').default;
 const app=express();
 const PORT = 9000;
 
-app.use(express.static('build')); 
 
 app.get('/', (req, res) => {
   const content = renderToString(<App />);
@@ -15,8 +14,8 @@ app.get('/', (req, res) => {
   <!DOCTYPE html>
   <html>
     <head>
-      <title>Your App Name</title>
-      <link rel="stylesheet" href="/path-to-your-css.css"> <!-- CSSへのパスも適切に指定 -->
+      <title>Trello App with SSR</title>
+    <link rel="stylesheet" href="/static/css/main.48d821ec.css">
     </head>
     <body>
       <div id="root">${content}</div>
@@ -27,6 +26,7 @@ app.get('/', (req, res) => {
 
 res.send(html);
 });
+app.use(express.static('build')); 
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);

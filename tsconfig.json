@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["./types", "./node_modules/@types"],
     "target": "es5",
     "module": "commonjs",
     "strict": true,
@@ -10,7 +11,7 @@
     "outDir": "./dist",
     "rootDir": "./",
     "moduleResolution": "node",
-    "typeRoots": ["./node_modules/@types", "./src/interfaces"]
+    // "typeRoots": ["./node_modules/@types", "./src/interfaces"]
   },
   "include": [
     "src/**/*.ts",

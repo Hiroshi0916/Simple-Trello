@@ -8,7 +8,7 @@ module.exports = [
   entry: "./src/index.tsx",
   output: {
     filename: "client.bundle.js",
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "build"),
   },
   module: {
     rules: [
@@ -22,7 +22,7 @@ module.exports = [
           }
         }
       },
-          // ここからが新しく追加するCSSのローダー設定です。
+          //新しく追加するCSSのローダー設定
     {
       test: /\.css$/,
       use: ["style-loader", "css-loader"]
@@ -46,7 +46,7 @@ module.exports = [
   module: {
     rules: [
       {
-        test: /\.(js|jsx|tsx|ts)$/,   // ファイルタイプを追加
+        test: /\.(js|jsx|tsx|ts)$/,  
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
